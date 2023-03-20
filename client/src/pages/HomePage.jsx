@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import MenuList from "../components/MenuList";
+import ProductCard from "../components/ProductCard";
 
 function HomePage() {
   const [foods, setFoods] = useState([]);
@@ -11,12 +11,14 @@ function HomePage() {
       .then((err) => console.log(err));
   }, []);
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 container mx-auto">
-      {foods.map((menu, index) => (
-        <div className="col-md-4" key={index}>
-          <MenuList menu={menu} />
-        </div>
-      ))}
+    <div className="container px-6 py-10 mx-auto">
+      <div className="grid grid-cols-1 gap-8 xl:gap-12 sm:grid-cols-2 xl:grid-cols-4 lg:grid-cols-3">
+        {foods.map((menu, index) => (
+          <div className="w-full" key={index}>
+            <ProductCard menu={menu} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

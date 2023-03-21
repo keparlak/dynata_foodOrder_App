@@ -1,10 +1,4 @@
-import {
-  HeartIcon,
-  PlusSmallIcon,
-  StarIcon,
-  XCircleIcon,
-  XMarkIcon,
-} from "@heroicons/react/24/solid";
+import { HeartIcon, PlusSmallIcon, StarIcon } from "@heroicons/react/24/solid";
 import React, { useState } from "react";
 
 function ProductCard({ menu }) {
@@ -17,8 +11,8 @@ function ProductCard({ menu }) {
   return (
     <>
       <div className="bg-white rounded-xl shadow-xl relative w-full bg-base-100">
-        <span className="rounded-full bg-white p-1 absolute top-4 right-4 shadow-sm">
-          <HeartIcon className="w-6 h-6 stroke-gray-400 hover:stroke-none text-white hover:fill-red-500" />
+        <span className="rounded-full bg-white p-1 absolute top-4 right-4 shadow-md">
+          <HeartIcon className="w-6 h-6 stroke-gray-400 hover:stroke-none text-white hover:fill-red-500 cursor-pointer" />
         </span>
         <figure>
           <img
@@ -28,7 +22,7 @@ function ProductCard({ menu }) {
           />
         </figure>
         <div className="mt-4 p-3">
-          <h1 className="text-2xl font-bold text-gray-700">{menu.ad}</h1>
+          <h1 className="text-xl font-bold text-gray-700">{menu.ad}</h1>
           <div className="flex p-1 items-center justify-between">
             <p className="text-sm mt-2 text-gray-700">{menu.kategori}</p>
             <span className="text-xs flex gap-1">
@@ -85,9 +79,9 @@ function ProductCard({ menu }) {
               </span>
               {menu.fiyat[0][ozellik] * miktar}₺
             </span>
-            <button className="text-lg flex justify-center items-center font-semibold py-2 px-6 text-orange-900 hover:text-white bg-orange-400 rounded-lg shadow hover:shadow-md transition duration-300">
+            <button className="text-md flex justify-center items-center font-semibold py-2 px-4 text-orange-900 hover:text-white bg-orange-400 rounded-lg shadow hover:shadow-md transition duration-300">
               <PlusSmallIcon className="w-5 h-5" />
-              ADD TO CARD
+              ADD CARD
             </button>
           </div>
         </div>

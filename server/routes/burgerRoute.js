@@ -1,10 +1,10 @@
 const express = require("express");
 const burgerModel = require("../models/BurgerModel");
 const router = express.Router();
+const app = express();
 
-// GET ALL FOOD SERVİSİ
-
-app.get("/getFoods", async (req, res) => {
+//GET ALL FOODS SERVİSİ
+router.get("/getBurgers", async (req, res) => {
   try {
     const foods = await burgerModel.find({});
     res.send(foods);
@@ -12,4 +12,5 @@ app.get("/getFoods", async (req, res) => {
     console.log(err);
   }
 });
+
 module.exports = router;

@@ -5,69 +5,80 @@ import {
   HeartIcon,
   UserCircleIcon,
 } from "@heroicons/react/24/solid";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function Navbar() {
+  const cartState = useSelector((state) => state.addToCartReducer);
+  const { cartItems } = cartState;
   return (
     <>
       {/* navbar */}
       <nav className="flex justify-between bg-gray-900 text-white">
         <div className="px-5 xl:px-12 py-6 flex w-full items-center">
-          <a className="text-3xl font-bold font-heading" href="#">
+          <Link to="/" className="text-3xl font-bold font-heading">
             <img className="h-9" src="./logo.png" alt="logo" />
-          </a>
+          </Link>
           {/* Nav Links */}
           <ul className="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
             <li>
-              <a className="hover:text-gray-200" href="#">
+              <Link to="/" className="hover:text-gray-200">
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a className="hover:text-gray-200" href="#">
+              <Link to="/" className="hover:text-gray-200">
                 Catagory
-              </a>
+              </Link>
             </li>
             <li>
-              <a className="hover:text-gray-200" href="#">
+              <Link to="/" className="hover:text-gray-200">
                 Collections
-              </a>
+              </Link>
             </li>
             <li>
-              <a className="hover:text-gray-200" href="#">
+              <Link to="/" className="hover:text-gray-200">
                 Contact Us
-              </a>
+              </Link>
             </li>
           </ul>
           {/* Header Icons */}
           <div className="hidden xl:flex items-center space-x-5">
-            <a className="hover:text-gray-200" href="#">
+            <Link to="" className="hover:text-gray-200">
               <HeartIcon className="h-6 w-6" />
-            </a>
-            <a className="flex items-center hover:text-gray-200" href="#">
+            </Link>
+            <Link to="/sepet" className="flex items-center hover:text-gray-200">
               <ShoppingBagIcon className="h-6 w-6" />
               <span className="flex absolute -mt-5 ml-4">
                 <span className="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-pink-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-pink-500"></span>
+                <span className="relative inline-flex rounded-full h-4 w-4 bg-pink-500 text-xs place-content-center font-bold">
+                  {cartItems.length}
+                </span>
               </span>
-            </a>
+            </Link>
             {/* Sign In / Register      */}
-            <a className="flex items-center gap-2 hover:text-gray-200" href="#">
+            <Link
+              to="/login"
+              className="flex items-center gap-2 hover:text-gray-200"
+            >
               <UserCircleIcon className="h-6 w-6 hover:text-gray-200" />
               Login
-            </a>
+            </Link>
           </div>
         </div>
         {/* Responsive navbar */}
-        <a className="xl:hidden flex mr-6 items-center" href="#">
+        <Link to="" className="xl:hidden flex mr-6 items-center">
           <ShoppingBagIcon className="h-6 w-6 hover:text-gray-200" />
           <span className="flex absolute -mt-5 ml-4">
             <span className="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-pink-400 opacity-75" />
-            <span className="relative inline-flex rounded-full h-3 w-3 bg-pink-500"></span>
+            <span className="relative inline-flex rounded-full h-3 w-3 bg-pink-500 place-content-center font-bold text-xs">
+              {cartItems.length}
+            </span>
           </span>
-        </a>
-        <a className="navbar-burger self-center mr-12 xl:hidden" href="#">
+        </Link>
+        <Link to="" className="navbar-burger self-center mr-12 xl:hidden">
           <Bars3Icon className="h-6 w-6 hover:text-gray-200" />
-        </a>
+        </Link>
       </nav>
     </>
   );

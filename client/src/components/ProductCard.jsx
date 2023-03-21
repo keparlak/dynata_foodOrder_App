@@ -1,5 +1,10 @@
 import { HeartIcon, PlusSmallIcon, StarIcon } from "@heroicons/react/24/solid";
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addToCartAction } from "../actions/cartActions";
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function ProductCard({ menu }) {
   const [ozellik, setOzellik] = useState("medium");
@@ -7,9 +12,28 @@ function ProductCard({ menu }) {
   const adetHandler = (e) => {
     setMiktar(e.target.value);
   };
+  const dispatch = useDispatch();
+  const addToCart = () => {
+    if (miktar > 0) {
+      toast("Sepete Ürün Eklendi");
+      dispatch(addToCartAction(menu, miktar, ozellik));
+    }
+  };
 
   return (
     <>
+      <ToastContainer
+        position="top-right"
+        autoClose={500}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover={false}
+        theme="dark"
+      />
       <div className="bg-white rounded-xl shadow-xl relative w-full bg-base-100">
         <span className="rounded-full bg-white p-1 absolute top-4 right-4 shadow-md">
           <HeartIcon className="w-6 h-6 stroke-gray-400 hover:stroke-none text-white hover:fill-red-500 cursor-pointer" />
@@ -79,7 +103,10 @@ function ProductCard({ menu }) {
               </span>
               {menu.fiyat[0][ozellik] * miktar}₺
             </span>
-            <button className="text-md flex justify-center items-center font-semibold py-2 px-4 text-orange-900 hover:text-white bg-orange-400 rounded-lg shadow hover:shadow-md transition duration-300">
+            <button
+              className="text-md flex justify-center items-center font-semibold py-2 px-4 text-orange-900 hover:text-white bg-orange-400 rounded-lg shadow hover:shadow-md transition duration-300"
+              onClick={addToCart}
+            >
               <PlusSmallIcon className="w-5 h-5" />
               ADD CARD
             </button>

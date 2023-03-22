@@ -8,14 +8,17 @@ const app = express();
 //db için hazırlanan js dosyasını çağırıyoruz..
 const db = require("./db");
 const burgerModel = require("./models/BurgerModel");
-const burgersRoute = require("./routes/burgerRoute");
+const burgersRoute = require("./routes/burgersRoute");
+const usersRoute = require("./routes/usersRoute");
 
 //middlewareimiz ile cors kütüphanesini kullanmayı ve json req ve res'lerinde hata almanın önüne geçtik.
 app.use(express.json());
 app.use(cors());
 
 //servisleri route ile çağırıyoruz
-app.use("/api/burgers", burgersRoute);
+
+app.use("/api/burgers", burgersRoute); //burger servisleri
+app.use("/api/users", usersRoute); //burger servisleri
 
 //server'ımız çağıracağımız portu belirledik.
 var port = 4000;

@@ -11,6 +11,7 @@ function CartPage() {
   console.log(cartItems);
 
   const dispatch = useDispatch();
+  const totalPrice = cartItems.reduce((x, urun) => x + urun.topfiyat, 0);
 
   return (
     <div>
@@ -104,7 +105,7 @@ function CartPage() {
                 <div className="flex justify-between">
                   <p className="text-lg font-bold">Total</p>
                   <div className>
-                    <p className="mb-1 text-lg font-bold">134.98₺</p>
+                    <p className="mb-1 text-lg font-bold">{totalPrice}₺</p>
                     <p className="text-sm text-gray-700">including VAT</p>
                   </div>
                 </div>

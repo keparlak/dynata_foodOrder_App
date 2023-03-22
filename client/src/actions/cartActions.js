@@ -4,11 +4,11 @@ export const addToCartAction =
       ad: menu.ad,
       _id: menu._id,
       img: menu.img,
-      ozellik: menu.ozellik,
+      ozellik: ozellik,
       kategori: menu.kategori,
-      miktar: miktar,
+      miktar: Number(miktar),
       fiyat: menu.fiyat,
-      topfiyat: menu.fiyat[0][ozellik] * miktar,
+      topfiyat: menu.fiyat[0][ozellik] * Number(miktar),
       desc: menu.desc,
     };
     if (miktar > 0) {
@@ -17,3 +17,9 @@ export const addToCartAction =
       localStorage.setItem("cartItems", JSON.stringify(cartItems));
     }
   };
+
+export const deleteFromCartAction = (menu) => (dispatch, getState) => {
+  dispatch({ type: "DELETE_FROM_CART", payload: menu });
+  const cartItems = getState().addToCartReducer.cartItems;
+  localStorage.removeItem("cartItems", JSON.stringify(cartItems));
+};

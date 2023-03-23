@@ -6,7 +6,8 @@ import {
   UserCircleIcon,
 } from "@heroicons/react/24/solid";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { logoutUserAction } from "../actions/userActions";
 
 function Navbar() {
   const cartState = useSelector((state) => state.addToCartReducer);
@@ -14,7 +15,12 @@ function Navbar() {
   const userState = useSelector((state) => state.loginUserReducer);
   const { cartItems } = cartState;
   const { currentUser } = userState;
-  console.log(currentUser);
+
+  const dispatch = useDispatch();
+
+  const logoutHandler = async () => {
+    await dispatch(logoutUserAction());
+  };
   return (
     <>
       {/* navbar */}
@@ -63,28 +69,38 @@ function Navbar() {
             {/* Sign In / Register      */}
             {currentUser ? (
               <>
-                <button className="flex first:pt-0 last:pb-0 group">
-                  <img
-                    className="h-6 w-6 rounded-full"
-                    src="https://randomuser.me/api/portraits/men/25.jpg"
-                    alt=""
-                  />
-                  <div className="ml-3">
-                    <p className="text-sm text-left font-medium text-gray-100">
-                      {currentUser.name}
-                    </p>
-                    <p className="text-sm text-slate-500 truncate">
-                      {currentUser.mail}
-                    </p>
+                <button className="flex flex-col relative group">
+                  <div className="flex">
+                    <img
+                      className="h-8 w-8 rounded-full"
+                      src="https://randomuser.me/api/portraits/men/25.jpg"
+                      alt=""
+                    />
+                    <div className="ml-3">
+                      <p className="text-sm text-left font-medium text-gray-100">
+                        {currentUser.name}
+                      </p>
+                      <p className="text-sm text-slate-500 truncate">
+                        {currentUser.mail}
+                      </p>
+                    </div>
                   </div>
-                  <ul className="w-full hidden group-focus:block group-focus:transition group-focus:ease-in-out group-focus:duration-300">
+                  <ul className="w-full hidden absolute p-2 top-10 shadow-xl overflow-hidden rounded-lg z-10 text-gray-900 bg-white group-focus:block group-focus:transition group-focus:ease-in-out group-focus:duration-300">
                     <li>
-                      <Link className="p-2" to="/myorders">
+                      <Link
+                        className="p-2 m2 rounded block hover:bg-gray-400 hover:text-white"
+                        to="/myorders"
+                      >
                         Siparişlerim
                       </Link>
                     </li>
                     <li>
-                      <Link className="dropdown-item">Logout</Link>
+                      <a
+                        className="p-2 m2 rounded block hover:bg-gray-400 hover:text-white"
+                        onClick={logoutHandler}
+                      >
+                        Logout
+                      </a>
                     </li>
                   </ul>
                 </button>

@@ -56,3 +56,8 @@ export const loginUserAction = (user) => async (dispatch, getState) => {
     });
   }
 };
+export const logoutUserAction = () => {
+  localStorage.removeItem("currentUser");
+  console.log("Şuan Çıkış Yapıldı");
+  window.location.href = "/login";
+};

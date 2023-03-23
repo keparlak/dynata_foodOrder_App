@@ -2,20 +2,28 @@ import { TrashIcon } from "@heroicons/react/24/solid";
 import React from "react";
 
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { addToCartAction, deleteFromCartAction } from "../actions/cartActions";
 
 function CartPage() {
   const cartState = useSelector((state) => state.addToCartReducer);
+  const userState = useSelector((state) => state.loginUserReducer);
 
   const { cartItems } = cartState;
-  console.log(cartItems);
+  const { currentUser } = userState;
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const totalPrice = cartItems.reduce((x, urun) => x + urun.topfiyat, 0);
 
+  const checkOutHandler = () => {
+    if (!currentUser) {
+      navigate("/login");
+    }
+  };
   return (
     <div>
-      <div className="h-full bg-gray-100 pt-20">
+      <div className="h-full bg-gray-100 pt-10">
         {cartItems.length == 0 ? (
           <h1 className="mb-10 text-center text-2xl font-bold">Cart Empty</h1>
         ) : (
@@ -49,10 +57,9 @@ function CartPage() {
                         <div className="flex items-center justify-center border-gray-100">
                           <span
                             href="#"
-                            class="text-white text-xs font-semibold bg-gray-700 px-2 py-1 rounded-full"
+                            className="text-slate-50 text-xs bg-gray-700 px-2 py-1 rounded-full"
                           >
-                            {" "}
-                            {urun.ozellik}{" "}
+                            {urun.ozellik}
                           </span>
                         </div>
                         <div className="flex items-center border-gray-100">
@@ -121,7 +128,10 @@ function CartPage() {
                     <p className="text-sm text-gray-700">including VAT</p>
                   </div>
                 </div>
-                <button className="mt-6 w-full rounded-md bg-gray-800 py-1.5 font-medium text-blue-50 hover:bg-gray-900">
+                <button
+                  className="mt-6 w-full rounded-md bg-gray-800 py-1.5 font-medium text-blue-50 hover:bg-gray-900"
+                  onClick={checkOutHandler}
+                >
                   Check out
                 </button>
               </div>

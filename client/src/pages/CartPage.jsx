@@ -15,7 +15,7 @@ function CartPage() {
 
   return (
     <div>
-      <div className="h-screen bg-gray-100 pt-20">
+      <div className="h-full bg-gray-100 pt-20">
         {cartItems.length == 0 ? (
           <h1 className="mb-10 text-center text-2xl font-bold">Cart Empty</h1>
         ) : (
@@ -41,8 +41,20 @@ function CartPage() {
                         <p className="mt-1 text-xs text-gray-700">
                           {urun.kategori}
                         </p>
+                        <p className="mt-1 text-xs text-gray-700">
+                          {urun.desc}
+                        </p>
                       </div>
-                      <div className="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
+                      <div className="mt-4 flex items-center justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
+                        <div className="flex items-center justify-center border-gray-100">
+                          <span
+                            href="#"
+                            class="text-white text-xs font-semibold bg-gray-700 px-2 py-1 rounded-full"
+                          >
+                            {" "}
+                            {urun.ozellik}{" "}
+                          </span>
+                        </div>
                         <div className="flex items-center border-gray-100">
                           <span
                             className="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50"

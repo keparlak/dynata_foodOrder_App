@@ -7,7 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function ProductCard({ menu }) {
-  const [ozellik, setOzellik] = useState("medium");
+  const [ozellik, setOzellik] = useState("small");
   const [miktar, setMiktar] = useState(1);
   const adetHandler = (e) => {
     setMiktar(e.target.value);

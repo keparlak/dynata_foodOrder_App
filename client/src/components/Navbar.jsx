@@ -10,7 +10,11 @@ import { useSelector } from "react-redux";
 
 function Navbar() {
   const cartState = useSelector((state) => state.addToCartReducer);
+
+  const userState = useSelector((state) => state.loginUserReducer);
   const { cartItems } = cartState;
+  const { currentUser } = userState;
+  console.log(currentUser);
   return (
     <>
       {/* navbar */}
@@ -51,19 +55,51 @@ function Navbar() {
               <ShoppingBagIcon className="h-6 w-6" />
               <span className="flex absolute -mt-5 ml-4">
                 <span className="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-pink-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-4 w-4 bg-pink-500 text-xs place-content-center font-bold">
+                <span className="relative inline-flex rounded-full h-4 w-4 bg-pink-500 text-[9px] place-content-center font-bold">
                   {cartItems.length}
                 </span>
               </span>
             </Link>
             {/* Sign In / Register      */}
-            <Link
-              to="/login"
-              className="flex items-center gap-2 hover:text-gray-200"
-            >
-              <UserCircleIcon className="h-6 w-6 hover:text-gray-200" />
-              Login
-            </Link>
+            {currentUser ? (
+              <>
+                <button className="flex first:pt-0 last:pb-0 group">
+                  <img
+                    className="h-6 w-6 rounded-full"
+                    src="https://randomuser.me/api/portraits/men/25.jpg"
+                    alt=""
+                  />
+                  <div className="ml-3">
+                    <p className="text-sm text-left font-medium text-gray-100">
+                      {currentUser.name}
+                    </p>
+                    <p className="text-sm text-slate-500 truncate">
+                      {currentUser.mail}
+                    </p>
+                  </div>
+                  <ul className="w-full hidden group-focus:block group-focus:transition group-focus:ease-in-out group-focus:duration-300">
+                    <li>
+                      <Link className="p-2" to="/myorders">
+                        Siparişlerim
+                      </Link>
+                    </li>
+                    <li>
+                      <Link className="dropdown-item">Logout</Link>
+                    </li>
+                  </ul>
+                </button>
+              </>
+            ) : (
+              <>
+                <Link
+                  to="/login"
+                  className="flex items-center gap-2 hover:text-gray-200"
+                >
+                  <UserCircleIcon className="h-6 w-6 hover:text-gray-200" />
+                  Login
+                </Link>
+              </>
+            )}
           </div>
         </div>
         {/* Responsive navbar */}
@@ -71,7 +107,7 @@ function Navbar() {
           <ShoppingBagIcon className="h-6 w-6 hover:text-gray-200" />
           <span className="flex absolute -mt-5 ml-4">
             <span className="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-pink-400 opacity-75" />
-            <span className="relative inline-flex rounded-full h-3 w-3 bg-pink-500 place-content-center font-bold text-xs">
+            <span className="relative inline-flex rounded-full h-3 w-3 bg-pink-500 place-content-center font-bold text-[9px]">
               {cartItems.length}
             </span>
           </span>

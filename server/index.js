@@ -10,6 +10,7 @@ const db = require("./db");
 const burgerModel = require("./models/BurgerModel");
 const burgersRoute = require("./routes/burgersRoute");
 const usersRoute = require("./routes/usersRoute");
+const ordersRouter = require("./routes/ordersRoute");
 
 //middlewareimiz ile cors kütüphanesini kullanmayı ve json req ve res'lerinde hata almanın önüne geçtik.
 app.use(express.json());
@@ -19,6 +20,7 @@ app.use(cors());
 
 app.use("/api/burgers", burgersRoute); //burger servisleri
 app.use("/api/users", usersRoute); //burger servisleri
+app.use("api/orders", ordersRoute); //order servisleri
 
 //server'ımız çağıracağımız portu belirledik.
 var port = 4000;

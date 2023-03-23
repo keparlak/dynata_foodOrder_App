@@ -4,12 +4,8 @@
 
 ### Front-end
 
-Tailwind
 ReactJS
-AlpineJS
-Heroicons
-Axios
-React Router DOM
+Tailwind
 
 ### Back-end
 

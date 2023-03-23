@@ -4,6 +4,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addToCartAction, deleteFromCartAction } from "../actions/cartActions";
+import CheckoutPage from "./CheckoutPage";
 
 function CartPage() {
   const cartState = useSelector((state) => state.addToCartReducer);
@@ -128,12 +129,7 @@ function CartPage() {
                     <p className="text-sm text-gray-700">including VAT</p>
                   </div>
                 </div>
-                <button
-                  className="mt-6 w-full rounded-md bg-gray-800 py-1.5 font-medium text-blue-50 hover:bg-gray-900"
-                  onClick={checkOutHandler}
-                >
-                  Check out
-                </button>
+                <CheckoutPage toplamfiyat={totalPrice} />
               </div>
             </div>
           </>

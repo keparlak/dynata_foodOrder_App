@@ -1,8 +1,4 @@
-import {
-  EnvelopeIcon,
-  LockClosedIcon,
-  UserIcon,
-} from "@heroicons/react/24/outline";
+import { EnvelopeIcon, LockClosedIcon } from "@heroicons/react/24/outline";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";

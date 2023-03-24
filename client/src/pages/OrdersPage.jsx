@@ -13,11 +13,11 @@ function OrdersPage() {
   return (
     <div className="h-full min-h-screen bg-gray-100 pt-10">
       <h1 className="mb-10 text-center text-2xl font-bold">My Orders</h1>
-      <div className="mx-auto max-w-5xl justify-center p-6 md:flex md:space-x-6 xl:px-0">
+      <div className="mx-auto max-w-5xl flex-col items-center justify-center p-6 flex">
         {orders.map((order, index) => (
           <div
             key={index}
-            className="rounded-lg md:w-2/3  bg-white shadow-md p-6"
+            className="rounded-lg sm:w-full sm:mx-2 w-2/3 mb-6 bg-white shadow-md p-6"
           >
             {order.orderItems.map((item) => (
               <div
@@ -34,15 +34,28 @@ function OrdersPage() {
                     <h2 className="text-lg font-bold text-gray-900">
                       {item.ad}
                     </h2>
-                    <span className="text-slate-50 text-xs bg-gray-700 px-2 py-1 rounded-full">
-                      {item.ozellik}
-                    </span>
                     <p className="mt-1 text-xs text-gray-700">
                       {item.kategori}
                     </p>
                     <p className="mt-1 text-xs text-gray-700">
                       {item.createdAt}
                     </p>
+                  </div>
+                  <div className="mt-4 flex items-center justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
+                    <div className="flex items-center justify-center border-gray-100">
+                      <span className="text-slate-50 text-xs bg-gray-700 px-2 py-1 rounded-full">
+                        {item.ozellik}
+                      </span>
+                    </div>
+                    <div className="flex items-center border-gray-100">
+                      asdasd
+                    </div>
+                    <div className="flex items-center space-x-4">
+                      <p className="text-sm">
+                        {item.miktar} x {item.fiyat[0][item.ozellik]} ={" "}
+                        {item.topfiyat}₺
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -55,7 +68,10 @@ function OrdersPage() {
                     <span className="text-gray-600 font-semibold">Contact</span>
                   </div>
                   <div className="flex-grow pl-3">
-                    <span>Shipping Address</span>
+                    <span>{order.shippingAddress.street}, </span>
+                    <span>{order.shippingAddress.city}/ </span>
+                    <span>{order.shippingAddress.country}, </span>
+                    <span>{order.shippingAddress.zipCode}</span>
                   </div>
                 </div>
                 <div className="w-full flex items-center">
@@ -72,20 +88,33 @@ function OrdersPage() {
 
               <div className="w-full flex justify-between">
                 <div className="flex items-center justify-center border-gray-100">
-                  <span className="text-slate-50 text-xs bg-gray-700 px-2 py-1 rounded-full">
-                    {order.isDelivered ? "gönderilmedi" : "tamamlandı"}
-                  </span>
+                  {order.isDelivered ? (
+                    <span className="text-slate-50 text-xs bg-yellow-500 px-2 py-1 rounded-full">
+                      Bekleniyor
+                    </span>
+                  ) : (
+                    <span className="text-slate-50 text-xs bg-green-500	 px-2 py-1 rounded-full">
+                      Tamamlandı
+                    </span>
+                  )}
                 </div>
                 <div className="flex items-center justify-center">
-                  <div class="w-full flex items-center">
-                    <div class="flex-grow">
-                      <span class="text-gray-600">Total</span>
+                  <div className="w-full flex items-center">
+                    <div className="flex-grow">
+                      <span className="text-gray-600">Total</span>
                     </div>
-                    <div class="pl-3">
-                      <span class="font-semibold">{order.orderAmount}₺</span>
+                    <div className="pl-3">
+                      <span className="font-semibold">
+                        {order.orderAmount}₺
+                      </span>
                     </div>
                   </div>
                 </div>
+              </div>
+              <div className="w-full flex items-center justify-between border-t mt-3 py-3">
+                <p>İşlem Tarihi: {order.updatedAt.slice(0, 10)}</p>
+                <p>İşlem No: </p>
+                <p>İşlem Tarihi: </p>
               </div>
             </div>
           </div>

@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/Navbar";
+import AdminPage from "./pages/AdminPage";
 import CartPage from "./pages/CartPage";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
@@ -15,7 +16,8 @@ function App() {
         <Route path="/sepet" element={<CartPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
-        <Route path="/orders" element={<OrdersPage />} />
+        <Route path="/myorders" element={<OrdersPage />} />
+        <Route path="/admin/*" element={<AdminPage />} />
       </Routes>
     </>
   );

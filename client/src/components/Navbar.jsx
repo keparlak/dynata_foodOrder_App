@@ -89,7 +89,7 @@ function Navbar() {
                     <li>
                       <Link
                         className="p-2 text-sm rounded block hover:bg-gray-400 hover:text-white"
-                        to="/orders"
+                        to="/myorders"
                       >
                         Siparişlerim
                       </Link>
@@ -152,7 +152,7 @@ function Navbar() {
                   <li>
                     <Link
                       className="py-2 px-6 text-sm rounded block hover:bg-gray-400 hover:text-white"
-                      to="/orders"
+                      to="/myorders"
                     >
                       Siparişlerim
                     </Link>

@@ -70,7 +70,7 @@ function Navbar() {
             {currentUser ? (
               <>
                 <button className="flex flex-col relative group">
-                  <div className="flex">
+                  <div className="flex place-items-center">
                     <img
                       className="h-8 w-8 rounded-full"
                       src="https://randomuser.me/api/portraits/men/25.jpg"
@@ -88,19 +88,19 @@ function Navbar() {
                   <ul className="w-full hidden absolute p-2 top-10 shadow-xl overflow-hidden rounded-lg z-10 text-gray-900 bg-white group-focus:block group-focus:transition group-focus:ease-in-out group-focus:duration-300">
                     <li>
                       <Link
-                        className="p-2 m2 rounded block hover:bg-gray-400 hover:text-white"
-                        to="/myorders"
+                        className="p-2 text-sm rounded block hover:bg-gray-400 hover:text-white"
+                        to="/orders"
                       >
                         Siparişlerim
                       </Link>
                     </li>
                     <li>
-                      <a
-                        className="p-2 m2 rounded block hover:bg-gray-400 hover:text-white"
+                      <span
+                        className="p-2 text-sm rounded block hover:bg-gray-400 hover:text-white"
                         onClick={logoutHandler}
                       >
                         Logout
-                      </a>
+                      </span>
                     </li>
                   </ul>
                 </button>
@@ -119,7 +119,7 @@ function Navbar() {
           </div>
         </div>
         {/* Responsive navbar */}
-        <Link to="" className="xl:hidden flex mr-6 items-center">
+        <Link to="/sepet" className="xl:hidden flex mr-6 items-center">
           <ShoppingBagIcon className="h-6 w-6 hover:text-gray-200" />
           <span className="flex absolute -mt-5 ml-4">
             <span className="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-pink-400 opacity-75" />
@@ -128,9 +128,57 @@ function Navbar() {
             </span>
           </span>
         </Link>
-        <Link to="" className="navbar-burger self-center mr-12 xl:hidden">
-          <Bars3Icon className="h-6 w-6 hover:text-gray-200" />
-        </Link>
+        <div className="navbar-burger self-center mr-12 xl:hidden">
+          {currentUser ? (
+            <>
+              <button className="flex flex-col relative group">
+                <div className="flex place-items-center">
+                  <img
+                    className="w-8 rounded-full"
+                    src="https://randomuser.me/api/portraits/men/25.jpg"
+                    alt=""
+                  />
+                </div>
+
+                <ul className="hidden min-w-max absolute p-2 right-0 top-10 shadow-xl overflow-hidden rounded-lg z-10 text-gray-900 bg-white group-focus:block group-focus:transition group-focus:ease-in-out group-focus:duration-300">
+                  <div className="mb-3 py-2 px-6  rounded block bg-gray-900 text-white">
+                    <p className="text-xs text-left font-bold text-gray-100">
+                      {currentUser.name}
+                    </p>
+                    <p className="text-xs text-slate-500 truncate">
+                      {currentUser.mail}
+                    </p>
+                  </div>
+                  <li>
+                    <Link
+                      className="py-2 px-6 text-sm rounded block hover:bg-gray-400 hover:text-white"
+                      to="/orders"
+                    >
+                      Siparişlerim
+                    </Link>
+                  </li>
+                  <li className="py-2 px-6 text-sm rounded block hover:bg-gray-400 hover:text-white">
+                    <Link to="/liked" className="hover:text-gray-200">
+                      Favoriler
+                    </Link>
+                  </li>
+                  <li>
+                    <span
+                      className="p-2 px-6  text-sm rounded block hover:bg-gray-400 hover:text-white"
+                      onClick={logoutHandler}
+                    >
+                      Logout
+                    </span>
+                  </li>
+                </ul>
+              </button>
+            </>
+          ) : (
+            <>
+              <Bars3Icon className="h-6 w-6 hover:text-gray-200" />
+            </>
+          )}
+        </div>
       </nav>
     </>
   );

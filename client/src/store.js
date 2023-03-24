@@ -4,11 +4,17 @@ import { getAllBurgersReducer } from "./reducers/burgerReducers";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { addToCartReducer } from "./reducers/cartReducers";
 import { loginUserReducer, registerUserReducer } from "./reducers/userReducers";
+import {
+  checkoutOrderReducer,
+  getUsersOrdersReducer,
+} from "./reducers/orderReducers";
 const finalReducer = combineReducers({
   getAllBurgersReducer: getAllBurgersReducer,
   addToCartReducer: addToCartReducer,
   registerUserReducer: registerUserReducer,
   loginUserReducer: loginUserReducer,
+  checkoutOrderReducer: checkoutOrderReducer,
+  getUsersOrdersReducer: getUsersOrdersReducer,
 });
 const cartItems = localStorage.getItem("cartItems")
   ? JSON.parse(localStorage.getItem("cartItems"))

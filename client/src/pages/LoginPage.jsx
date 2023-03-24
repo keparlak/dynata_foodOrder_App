@@ -1,6 +1,6 @@
 import { EnvelopeIcon, LockClosedIcon } from "@heroicons/react/24/outline";
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { loginUserAction } from "../actions/userActions";
@@ -13,7 +13,7 @@ function LoginPage() {
   const navigate = useNavigate();
 
   const LoginHandler = () => {
-    if (mail == "" || pass == "") {
+    if (mail === "" || pass === "") {
       Swal.fire("Eksik alanları doldurunuz.!");
     } else {
       const user = {

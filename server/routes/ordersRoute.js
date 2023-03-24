@@ -4,7 +4,7 @@ const router = express.Router();
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const { v4: uuidv4 } = require("uuid");
 
-const cors = reqire("cors");
+const cors = require("cors");
 const OrderModel = require("../models/OrderModel");
 const app = express();
 
@@ -53,4 +53,15 @@ router.post("/checkout", async (req, res) => {
     }
   } catch (error) {}
 });
+
+router.post("/getusersorders", async (req, res) => {
+  const { userid } = req.body;
+  try {
+    const orders = await OrderModel.find({ userid: userid }).sort({ _id: -1 });
+    res.send(orders);
+  } catch (error) {
+    res.status(400).json({ message: "Can not access to orders." });
+  }
+});
+
 module.exports = router;

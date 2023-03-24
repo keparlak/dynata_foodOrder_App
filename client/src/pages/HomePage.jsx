@@ -1,23 +1,16 @@
-// import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllBurgers } from "../actions/burgerActions";
 import ProductCard from "../components/ProductCard";
 import Spinner from "../components/Spinner";
 
 function HomePage() {
-  // const [foods, setFoods] = useState([]);
-
   const burgerState = useSelector((state) => state.getAllBurgersReducer);
   const { burgers, loading } = burgerState;
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // axios
-    //   .get("http://localhost:4000/getFoods")
-    //   .then((res) => setFoods(res.data))
-    //   .then((err) => console.log(err));
     dispatch(getAllBurgers());
   }, []);
   return (

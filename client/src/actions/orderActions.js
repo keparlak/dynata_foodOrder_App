@@ -1,11 +1,10 @@
 import axios from "axios";
-import { loginUserReducer } from "../reducers/userReducers";
 
 export const checkoutOrderAction =
   (token, toplamfiyat) => async (dispatch, getState) => {
     dispatch({ type: "CHECKOUT_ORDER_REQUEST" });
     const currentUser = getState().loginUserReducer.currentUser;
-    const cartItems = getState().cartReducer.cartItems;
+    const cartItems = getState().addToCartReducer.cartItems;
     try {
       const response = await axios.post(
         "http://localhost:4000/api/orders/checkout",
@@ -16,5 +15,28 @@ export const checkoutOrderAction =
           cartItems,
         }
       );
-    } catch (error) {}
+
+      dispatch({ type: "CHECKOUT_ORDER_SUCCESS", payload: response.data });
+      localStorage.removeItem("cartItems");
+    } catch (error) {
+      dispatch({ type: "CHECKOUT_ORDER_FAILED", payload: error });
+      console.log(error);
+    }
   };
+
+export const getUsersOrdersAction = () => async (dispatch, getState) => {
+  const currentUser = getState().loginUserReducer.currentUser;
+  dispatch({ type: "GET_USER_ORDERS_REQUEST" });
+
+  try {
+    const response = await axios.post(
+      "http://localhost:4000/api/orders/getusersorders",
+      {
+        userid: currentUser._id,
+      }
+    );
+    dispatch({ type: "GET_USER_ORDERS_SUCCESS", payload: response.data });
+  } catch (error) {
+    dispatch({ type: "GET_USER_ORDERS_FAILED", payload: error });
+  }
+};

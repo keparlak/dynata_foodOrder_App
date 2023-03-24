@@ -24,8 +24,8 @@ function CartPage() {
   };
   return (
     <div>
-      <div className="h-full bg-gray-100 pt-10">
-        {cartItems.length == 0 ? (
+      <div className="h-full min-h-screen bg-gray-100 pt-10">
+        {cartItems.length === 0 ? (
           <h1 className="mb-10 text-center text-2xl font-bold">Cart Empty</h1>
         ) : (
           <>
@@ -56,10 +56,7 @@ function CartPage() {
                       </div>
                       <div className="mt-4 flex items-center justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
                         <div className="flex items-center justify-center border-gray-100">
-                          <span
-                            href="#"
-                            className="text-slate-50 text-xs bg-gray-700 px-2 py-1 rounded-full"
-                          >
+                          <span className="text-slate-50 text-xs bg-gray-700 px-2 py-1 rounded-full">
                             {urun.ozellik}
                           </span>
                         </div>
@@ -81,8 +78,8 @@ function CartPage() {
                           <input
                             className="h-8 w-8 border bg-white text-center text-xs outline-none appearance-none"
                             type="number"
-                            value={urun.miktar}
-                            min={1}
+                            defaultValue={urun.miktar}
+                            min={1 ? 1 : 0}
                           />
                           <span
                             className="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50"

@@ -20,7 +20,7 @@ app.use(cors());
 
 app.use("/api/burgers", burgersRoute); //burger servisleri
 app.use("/api/users", usersRoute); //burger servisleri
-app.use("api/orders", ordersRoute); //order servisleri
+app.use("/api/orders", ordersRouter); //order servisleri
 
 //server'ımız çağıracağımız portu belirledik.
 var port = 4000;

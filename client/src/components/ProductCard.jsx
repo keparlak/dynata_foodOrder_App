@@ -15,7 +15,7 @@ function ProductCard({ menu }) {
   const dispatch = useDispatch();
   const addToCart = () => {
     if (miktar > 0) {
-      toast("Sepete Ürün Eklendi");
+      toast.success("Sepete Ürün Eklendi");
       dispatch(addToCartAction(menu, miktar, ozellik));
     }
   };
@@ -32,11 +32,11 @@ function ProductCard({ menu }) {
         pauseOnFocusLoss
         draggable
         pauseOnHover={false}
-        theme="dark"
+        theme="light"
       />
-      <div className="bg-white rounded-xl shadow-xl relative w-full bg-base-100">
+      <div className="bg-white rounded-xl shadow-xl shadow-neutral-200 relative w-full bg-base-100">
         <span className="rounded-full bg-white p-1 absolute top-4 right-4 shadow-md">
-          <HeartIcon className="w-6 h-6 stroke-gray-400 hover:stroke-none text-white hover:fill-red-500 cursor-pointer" />
+          <HeartIcon className="w-6 h-6 stroke-neutral-400 hover:stroke-none text-white hover:fill-red-500 cursor-pointer" />
         </span>
         <figure>
           <img
@@ -46,26 +46,26 @@ function ProductCard({ menu }) {
           />
         </figure>
         <div className="mt-4 p-3">
-          <h1 className="text-xl font-bold text-gray-700">{menu.ad}</h1>
+          <h1 className="text-xl font-bold text-neutral-700">{menu.ad}</h1>
           <div className="flex p-1 items-center justify-between">
-            <p className="text-sm mt-2 text-gray-700">{menu.kategori}</p>
+            <p className="text-sm mt-2 text-neutral-700">{menu.kategori}</p>
             <span className="text-xs flex gap-1">
-              <StarIcon className="fill-yellow-500 w-4 h-4" />
-              4.2/5 <span className="text-gray-400">(500+)</span>
+              <StarIcon className="fill-orange-400 w-4 h-4" />
+              4.2/5 <span className="text-neutral-400">(500+)</span>
             </span>
           </div>
           <div className="mt-3 space-x-4 flex p-1 justify-between">
             <div className="w-half space-y-0.5">
               <label
                 htm-for="basic"
-                className="text-xs font-medium text-gray-500"
+                className="text-xs font-medium text-neutral-500"
               >
                 Type:
               </label>
               <select
                 id="basic"
                 name="basic"
-                className="block w-full truncate rounded-md border-gray-200 pr-8 text-sm transition focus:border-blue-600 focus:ring-blue-600 disabled:cursor-not-allowed disabled:bg-gray-200 disabled:opacity-75"
+                className="block w-full truncate rounded-md border-neutral-200 pr-8 text-sm transition focus:border-blue-600 focus:ring-blue-600 disabled:cursor-not-allowed disabled:bg-neutral-200 disabled:opacity-75"
                 onChange={(e) => setOzellik(e.target.value)}
               >
                 {menu.ozellik.map((size, index) => (
@@ -78,14 +78,14 @@ function ProductCard({ menu }) {
             <div className="w-half space-y-0.5">
               <label
                 htm-for="basic"
-                className="text-xs font-medium text-gray-500"
+                className="text-xs font-medium text-neutral-500"
               >
                 Quantity:
               </label>
               <select
                 id="basic"
                 name="basic"
-                className="block w-full truncate rounded-md border-gray-200 pr-8 text-sm transition focus:border-blue-600 focus:ring-blue-600 disabled:cursor-not-allowed disabled:bg-gray-200 disabled:opacity-75"
+                className="block w-full truncate rounded-md border-neutral-200 pr-8 text-sm transition focus:border-blue-600 focus:ring-blue-600 disabled:cursor-not-allowed disabled:bg-neutral-200 disabled:opacity-75"
                 onChange={adetHandler}
               >
                 {[...Array(10).keys()].map((x, index) => (
@@ -97,8 +97,8 @@ function ProductCard({ menu }) {
             </div>
           </div>
           <div className="mt-4 mb-2 flex justify-between items-center pl-4 pr-2">
-            <span className="block text-xl font-semibold text-gray-700">
-              <span className="line-through text-sm mr-2 text-gray-400">
+            <span className="block text-xl font-semibold text-neutral-700">
+              <span className="line-through text-sm mr-2 text-neutral-400">
                 {menu.fiyat[0][ozellik] * miktar * 0.9}₺
               </span>
               {menu.fiyat[0][ozellik] * miktar}₺

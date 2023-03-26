@@ -29,15 +29,15 @@ function LoginPage() {
   };
   return (
     <div>
-      <div className="min-w-screen min-h-screen bg-gray-900 flex items-center justify-center px-5 py-5">
+      <div className="min-w-screen min-h-screen bg-neutral-900 flex items-center justify-center px-5 py-5">
         <div
-          className="bg-gray-100 text-gray-500 rounded-3xl shadow-xl w-1/2 overflow-hidden"
+          className="bg-neutral-100 text-neutral-500 rounded-3xl shadow-xl w-1/2 overflow-hidden"
           style={{ maxWidth: "1000px" }}
         >
           <div className="md:flex w-full">
             <div className="w-full md:w-full py-10 px-5 md:px-10">
               <div className="text-center mb-10">
-                <h1 className="font-bold text-3xl text-gray-900">Login</h1>
+                <h1 className="font-bold text-3xl text-neutral-900">Login</h1>
                 <p>Enter your information to Login</p>
               </div>
               <div>
@@ -46,11 +46,11 @@ function LoginPage() {
                     <label className="text-xs font-semibold px-1">Email</label>
                     <div className="flex">
                       <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
-                        <EnvelopeIcon className="text-gray-400 w-5" />
+                        <EnvelopeIcon className="text-neutral-400 w-5" />
                       </div>
                       <input
                         type="email"
-                        className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                        className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-neutral-200 outline-none focus:border-indigo-500"
                         placeholder="johndoe@gmail.com"
                         onChange={(e) => setMail(e.target.value)}
                       />
@@ -64,11 +64,11 @@ function LoginPage() {
                     </label>
                     <div className="flex">
                       <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
-                        <LockClosedIcon className="text-gray-400 w-5" />
+                        <LockClosedIcon className="text-neutral-400 w-5" />
                       </div>
                       <input
                         type="password"
-                        className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                        className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-neutral-200 outline-none focus:border-indigo-500"
                         placeholder="************"
                         onChange={(e) => setPass(e.target.value)}
                       />
@@ -78,7 +78,7 @@ function LoginPage() {
                 <div className="flex -mx-3">
                   <div className="w-full px-3 mb-5">
                     <button
-                      className="block w-full max-w-xs mx-auto bg-gray-800 hover:bg-gray-900 focus:bg-gray-700 text-white rounded-lg px-3 py-3 font-semibold"
+                      className="block w-full max-w-xs mx-auto bg-neutral-800 hover:bg-neutral-900 focus:bg-neutral-700 text-white rounded-lg px-3 py-3 font-semibold"
                       onClick={LoginHandler}
                     >
                       Login NOW

@@ -2,7 +2,7 @@ import { TrashIcon } from "@heroicons/react/24/solid";
 import React from "react";
 
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { addToCartAction, deleteFromCartAction } from "../actions/cartActions";
 import CheckoutPage from "./CheckoutPage";
 
@@ -24,7 +24,7 @@ function CartPage() {
   };
   return (
     <div>
-      <div className="h-full min-h-screen bg-gray-100 pt-10">
+      <div className="h-full min-h-screen bg-neutral-100 py-10">
         {cartItems.length === 0 ? (
           <h1 className="mb-10 text-center text-2xl font-bold">Cart Empty</h1>
         ) : (
@@ -35,7 +35,7 @@ function CartPage() {
                 {cartItems.map((urun, index) => (
                   <div
                     key={index}
-                    className="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start"
+                    className="justify-between mb-6 rounded-lg bg-white p-6 shadow-lg shadow-neutral-200 sm:flex sm:justify-start"
                   >
                     <img
                       src={urun.img}
@@ -44,25 +44,25 @@ function CartPage() {
                     />
                     <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between">
                       <div className="mt-5 sm:mt-0">
-                        <h2 className="text-lg font-bold text-gray-900">
+                        <h2 className="text-lg font-bold text-neutral-900">
                           {urun.ad}
                         </h2>
-                        <p className="mt-1 text-xs text-gray-700">
+                        <p className="mt-1 text-xs text-neutral-700">
                           {urun.kategori}
                         </p>
-                        <p className="mt-1 text-xs text-gray-700">
+                        <p className="mt-1 text-xs text-neutral-700">
                           {urun.desc}
                         </p>
                       </div>
-                      <div className="mt-4 flex items-center justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
-                        <div className="flex items-center justify-center border-gray-100">
-                          <span className="text-slate-50 text-xs bg-gray-700 px-2 py-1 rounded-full">
+                      <div className="mt-4 flex justify-end sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
+                        <div className="flex items-center justify-end border-neutral-100">
+                          <span className="text-orange-500 bg-red-50 rounded-lg font-semibold text-xs px-2 py-1">
                             {urun.ozellik}
                           </span>
                         </div>
-                        <div className="flex items-center border-gray-100">
+                        <div className="flex items-center border-neutral-100">
                           <span
-                            className="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50"
+                            className="cursor-pointer rounded-l bg-neutral-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50"
                             onClick={() => {
                               dispatch(
                                 addToCartAction(
@@ -79,10 +79,10 @@ function CartPage() {
                             className="h-8 w-8 border bg-white text-center text-xs outline-none appearance-none"
                             type="number"
                             defaultValue={urun.miktar}
-                            min={1 ? 1 : 0}
+                            min="1"
                           />
                           <span
-                            className="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50"
+                            className="cursor-pointer rounded-r bg-neutral-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50"
                             onClick={() => {
                               dispatch(
                                 addToCartAction(
@@ -96,10 +96,10 @@ function CartPage() {
                             +
                           </span>
                         </div>
-                        <div className="flex items-center space-x-4">
+                        <div className="flex items-center justify-end space-x-4">
                           <p className="text-sm">{urun.topfiyat}₺</p>
                           <TrashIcon
-                            className="w-5 h-5 text-gray-800 hover:cursor-pointer"
+                            className="w-5 h-5 text-neutral-800 hover:cursor-pointer"
                             onClick={() => dispatch(deleteFromCartAction(urun))}
                           />
                         </div>
@@ -109,24 +109,36 @@ function CartPage() {
                 ))}
               </div>
               {/* Sub total */}
-              <div className="mt-6 h-full rounded-lg border bg-white p-6 shadow-md md:mt-0 md:w-1/3">
+              <div className="mt-6 h-full rounded-lg border bg-white p-6 shadow-lg shadow-neutral-200 md:mt-0 md:w-1/3">
                 <div className="mb-2 flex justify-between">
-                  <p className="text-gray-700">Subtotal</p>
-                  <p className="text-gray-700">129.99₺</p>
+                  <p className="text-neutral-700">Subtotal</p>
+                  <p className="text-neutral-700">129.99₺</p>
                 </div>
                 <div className="flex justify-between">
-                  <p className="text-gray-700">Shipping</p>
-                  <p className="text-gray-700">4.99₺</p>
+                  <p className="text-neutral-700">Shipping</p>
+                  <p className="text-neutral-700">4.99₺</p>
                 </div>
                 <hr className="my-4" />
                 <div className="flex justify-between">
                   <p className="text-lg font-bold">Total</p>
-                  <div>
+                  <div className="flex flex-col items-end">
                     <p className="mb-1 text-lg font-bold">{totalPrice}₺</p>
-                    <p className="text-sm text-gray-700">including VAT</p>
+                    <p className="text-sm text-neutral-700">including VAT</p>
                   </div>
                 </div>
                 <CheckoutPage toplamfiyat={totalPrice} />
+                <p className="mt-3 text-center text-base text-neutral-500">
+                  or
+                  <Link
+                    to="/"
+                    className="inline-flex items-center ml-1 text-center text-sm text-indigo-500 hover:text-indigo-600 font-semibold"
+                  >
+                    Continue Shopping
+                    <span className="ml-2" aria-hidden="true">
+                      &rarr;
+                    </span>
+                  </Link>
+                </p>
               </div>
             </div>
           </>

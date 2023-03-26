@@ -20,7 +20,7 @@ function OrdersPage() {
         {orders.map((order, index) => (
           <button
             key={index}
-            className="rounded-lg sm:w-full sm:mx-2 w-2/3 mb-6 bg-white shadow-lg shadow-neutral-200 p-6 transition-all duration-200 group"
+            className="rounded-lg sm:w-full sm:mx-2 w-9/10 mb-6 bg-white shadow-lg shadow-neutral-200 p-6 transition-all duration-200 group"
           >
             {order.orderItems.map((item) => (
               <div
@@ -30,7 +30,7 @@ function OrdersPage() {
                 <img
                   src={item.img}
                   alt={item.ad}
-                  className="w-full rounded-lg sm:w-20"
+                  className="w-full rounded-lg sm:w-20 sm:h-20"
                 />
                 <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between">
                   <div className="mt-5 sm:mt-0">

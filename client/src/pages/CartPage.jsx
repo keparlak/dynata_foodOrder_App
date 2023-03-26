@@ -121,7 +121,7 @@ function CartPage() {
                 <hr className="my-4" />
                 <div className="flex justify-between">
                   <p className="text-lg font-bold">Total</p>
-                  <div className>
+                  <div>
                     <p className="mb-1 text-lg font-bold">{totalPrice}₺</p>
                     <p className="text-sm text-gray-700">including VAT</p>
                   </div>

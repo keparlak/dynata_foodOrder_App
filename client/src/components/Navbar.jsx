@@ -88,8 +88,8 @@ function Navbar() {
                   <ul className="w-full hidden absolute p-2 top-10 shadow-xl overflow-hidden rounded-lg z-10 text-gray-900 bg-white group-focus:block group-focus:transition group-focus:ease-in-out group-focus:duration-300">
                     <li>
                       <Link
-                        className="p-2 text-sm rounded block hover:bg-gray-400 hover:text-white"
                         to="/myorders"
+                        className="p-2 text-sm rounded block hover:bg-gray-400 hover:text-white"
                       >
                         Siparişlerim
                       </Link>
@@ -151,8 +151,8 @@ function Navbar() {
                   </div>
                   <li>
                     <Link
-                      className="py-2 px-6 text-sm rounded block hover:bg-gray-400 hover:text-white"
                       to="/myorders"
+                      className="py-2 px-6 text-sm rounded block hover:bg-gray-400 hover:text-white"
                     >
                       Siparişlerim
                     </Link>

@@ -104,6 +104,18 @@ function Navbar() {
                     ref={btnRef}
                     className="w-full opacity-0 transition-opacity  duration-300 ease-in-out absolute p-2 top-10 shadow-xl overflow-hidden rounded-lg z-10 text-neutral-900 bg-neutral-100"
                   >
+                    {currentUser.isAdmin ? (
+                      <li>
+                        <Link
+                          to="admin"
+                          className="py-2 px-6 text-sm rounded block hover:bg-neutral-900 hover:text-neutral-100"
+                        >
+                          Admin
+                        </Link>
+                      </li>
+                    ) : (
+                      ""
+                    )}
                     <Link
                       to="myorders"
                       className="p-2 text-sm rounded block hover:bg-neutral-900 hover:text-neutral-100"
@@ -169,7 +181,18 @@ function Navbar() {
                       </p>
                     </div>
                   </li>
-
+                  {currentUser.isAdmin ? (
+                    <li>
+                      <Link
+                        to="admin"
+                        className="py-2 px-6 text-sm rounded block hover:bg-neutral-900 hover:text-neutral-100"
+                      >
+                        Admin
+                      </Link>
+                    </li>
+                  ) : (
+                    ""
+                  )}
                   <li>
                     <Link
                       to="myorders"

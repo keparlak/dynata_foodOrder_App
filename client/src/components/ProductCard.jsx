@@ -99,7 +99,7 @@ function ProductCard({ menu }) {
           <div className="mt-4 mb-2 flex justify-between items-center pl-4 pr-2">
             <span className="block text-xl font-semibold text-neutral-700">
               <span className="line-through text-sm mr-2 text-neutral-400">
-                {menu.fiyat[0][ozellik] * miktar * 0.9}₺
+                {Math.round(menu.fiyat[0][ozellik] * miktar * 0.9)}₺
               </span>
               {menu.fiyat[0][ozellik] * miktar}₺
             </span>

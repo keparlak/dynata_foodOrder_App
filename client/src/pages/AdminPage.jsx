@@ -10,8 +10,8 @@ import { useSelector } from "react-redux";
 import { Link, Route, Routes, useNavigate } from "react-router-dom";
 import AddMenu from "./AddMenu";
 import EditMenu from "./EditMenu";
-import MenuList from "./MenuList";
 import OrdersList from "./OrdersList";
+import MenuList from "./MenuList";
 import UsersList from "./UsersList";
 
 function AdminPage() {
@@ -27,7 +27,7 @@ function AdminPage() {
 
   return (
     <div className="flex">
-      <aside className="flex flex-col w-64 h-screen px-5 py-2 overflow-y-auto bg-white border-r rtl:border-r-0 rtl:border-l dark:bg-neutral-900 dark:border-neutral-700">
+      <aside className="flex flex-col w-64 min-h-screen h-full px-5 py-2 overflow-y-auto bg-white border-r rtl:border-r-0 rtl:border-l dark:bg-neutral-900 dark:border-neutral-700">
         <div className="flex flex-col justify-between flex-1 mt-6">
           <nav className="-mx-3 space-y-6 ">
             {/* MENU SECTION START */}
@@ -44,18 +44,19 @@ function AdminPage() {
               </Link>
               <Link
                 className="flex items-center px-3 py-2 text-neutral-600 transition-colors duration-300 transform rounded-lg dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 dark:hover:text-neutral-200 hover:text-neutral-700"
-                to="menulist"
-              >
-                <Squares2X2Icon className="w-5 h-5" />
-                <span className="mx-2 text-sm font-medium">Menu List</span>
-              </Link>
-              <Link
-                className="flex items-center px-3 py-2 text-neutral-600 transition-colors duration-300 transform rounded-lg dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 dark:hover:text-neutral-200 hover:text-neutral-700"
                 to="orderslist"
               >
                 <Square3Stack3DIcon className="w-5 h-5" />
                 <span className="mx-2 text-sm font-medium">Orders List</span>
               </Link>
+              <Link
+                className="flex items-center px-3 py-2 text-neutral-600 transition-colors duration-300 transform rounded-lg dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 dark:hover:text-neutral-200 hover:text-neutral-700"
+                to="menulist"
+              >
+                <Squares2X2Icon className="w-5 h-5" />
+                <span className="mx-2 text-sm font-medium">Menu List</span>
+              </Link>
+
               <Link
                 className="flex items-center px-3 py-2 text-neutral-600 transition-colors duration-300 transform rounded-lg dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 dark:hover:text-neutral-200 hover:text-neutral-700"
                 to="addmenu"

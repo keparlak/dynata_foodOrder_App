@@ -20,7 +20,7 @@ function AdminPage() {
   const { currentUser } = userState;
 
   useEffect(() => {
-    if (currentUser.isAdmin != true) {
+    if (currentUser == null || currentUser.isAdmin != true) {
       navigate("/");
     }
   }, [currentUser]);
@@ -64,13 +64,13 @@ function AdminPage() {
                 <PlusCircleIcon className="w-5 h-5" />
                 <span className="mx-2 text-sm font-medium">Add Menu</span>
               </Link>
-              <Link
+              {/* <Link
                 className="flex items-center px-3 py-2 text-neutral-600 transition-colors duration-300 transform rounded-lg dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 dark:hover:text-neutral-200 hover:text-neutral-700"
                 to="editmenu"
               >
                 <PencilSquareIcon className="w-5 h-5" />
                 <span className="mx-2 text-sm font-medium">Edit Menu</span>
-              </Link>
+              </Link> */}
             </div>
             {/* MENU SECTION END */}
           </nav>

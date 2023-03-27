@@ -1,6 +1,6 @@
 import {
   CurrencyDollarIcon,
-  EnvelopeIcon,
+  DocumentTextIcon,
   PhotoIcon,
   TagIcon,
   UserIcon,
@@ -95,7 +95,7 @@ function AddMenu() {
                     </label>
                     <div className="flex">
                       <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
-                        <EnvelopeIcon className="text-neutral-400 w-5" />
+                        <DocumentTextIcon className="text-neutral-400 w-5" />
                       </div>
                       <textarea
                         className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-neutral-200 outline-none focus:border-indigo-500"

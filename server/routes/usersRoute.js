@@ -2,7 +2,7 @@ const express = require("express");
 const UserModel = require("../models/UserModel");
 const router = express.Router();
 
-//!REGISTER SERVISI
+//!REGISTER SERVICES
 router.post("/register", async (req, res) => {
   const { name, mail, password } = req.body;
 
@@ -23,7 +23,7 @@ router.post("/register", async (req, res) => {
     }
   }
 });
-//!LOGIN SERVISI
+//!LOGIN SERVICES
 router.post("/login", async (req, res) => {
   const { mail, password } = req.body;
   try {
@@ -38,7 +38,7 @@ router.post("/login", async (req, res) => {
   }
 });
 
-//!Tüm Kullanıcıları Listeleme Servisi
+//!GET ALL USERS SERVICES
 router.get("/getAllUsers", async (req, res) => {
   try {
     const users = await UserModel.find({});
@@ -48,7 +48,7 @@ router.get("/getAllUsers", async (req, res) => {
   }
 });
 
-//Kullanıcı Silme Servisi
+//!DELETE USER SERVICES
 router.post("/deleteUser", async (req, res) => {
   const userid = req.body.userid;
 

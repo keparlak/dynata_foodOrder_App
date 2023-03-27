@@ -3,7 +3,7 @@ const burgerModel = require("../models/BurgerModel");
 const router = express.Router();
 const app = express();
 
-//GET ALL FOODS SERVİSİ
+//!GET ALL FOODS SERVICES
 router.get("/getBurgers", async (req, res) => {
   try {
     const foods = await burgerModel.find({});
@@ -13,7 +13,7 @@ router.get("/getBurgers", async (req, res) => {
   }
 });
 
-//SİLME SERVİSİ
+//!DELETE BURGERS SERVICES
 router.post("/deleteBurger", async (req, res) => {
   const burgerid = req.body.burgerid;
   // const { burgerid } = req.body;
@@ -25,7 +25,7 @@ router.post("/deleteBurger", async (req, res) => {
   }
 });
 
-//menü ekleme servisi
+//!ADD MENU SERVICES
 router.post("/addBurger", async (req, res) => {
   const menu = req.body.menu;
 
@@ -44,4 +44,15 @@ router.post("/addBurger", async (req, res) => {
   } catch (error) {}
 });
 
+//!GET BURGER BY ID SERVICES
+router.post("/getBurgerById", async (req, res) => {
+  const burgerid = req.body.burgerid;
+
+  try {
+    const burger = await burgerModel.findOne({ _id: burgerid });
+    res.send(burger);
+  } catch (error) {
+    res.status(400).json({ message: error });
+  }
+});
 module.exports = router;

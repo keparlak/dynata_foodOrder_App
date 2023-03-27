@@ -1,7 +1,6 @@
 import {
   CurrencyDollarIcon,
   EnvelopeIcon,
-  LockClosedIcon,
   PhotoIcon,
   TagIcon,
   UserIcon,

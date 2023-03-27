@@ -38,4 +38,26 @@ router.post("/login", async (req, res) => {
   }
 });
 
+//!Tüm Kullanıcıları Listeleme Servisi
+router.get("/getAllUsers", async (req, res) => {
+  try {
+    const users = await UserModel.find({});
+    res.send(users);
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+//Kullanıcı Silme Servisi
+router.post("/deleteUser", async (req, res) => {
+  const userid = req.body.userid;
+
+  try {
+    await UserModel.findOneAndDelete({ _id: userid });
+    res.send("Kullanıcı silme başarılı");
+  } catch {
+    res.status(400).json({ message: error });
+  }
+});
+
 module.exports = router;

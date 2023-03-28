@@ -57,3 +57,26 @@ export const getBurgerByIdReducer = (state = {}, action) => {
       return state;
   }
 };
+
+export const editBurgerReducer = (state = { editedBurger: null }, action) => {
+  switch (action.type) {
+    case "EDIT_BURGER_REQUEST":
+      return {
+        loading: true,
+        ...state,
+      };
+    case "EDIT_BURGER_SUCCESS":
+      return {
+        loading: false,
+        success: true,
+        editedBurger: action.payload,
+      };
+    case "EDIT_BURGER_FAILED":
+      return {
+        loading: false,
+        error: action.payload,
+      };
+    default:
+      return state;
+  }
+};

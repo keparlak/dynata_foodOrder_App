@@ -98,11 +98,11 @@ function AdminPage() {
         <button
           id="btnSidebarToggler"
           type="button"
-          className="py-4 text-2xl text-neutral-900 hover:text-neutral-600"
+          className="text-2xl rounded-lg m-2 p-2 bg-neutral-900  text-neutral-200 hover:text-neutral-400 "
           onClick={btnSidebarToggler}
         >
-          <Bars3Icon ref={navClosed} className="h-8 w-8" />
-          <XMarkIcon ref={navOpen} className="hidden h-8 w-8" />
+          <Bars3Icon ref={navClosed} className="h-5 w-5" />
+          <XMarkIcon ref={navOpen} className="hidden h-5 w-5" />
         </button>
         <div className="relative z-40">
           <nav

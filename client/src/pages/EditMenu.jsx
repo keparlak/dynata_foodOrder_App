@@ -8,8 +8,9 @@ import {
 } from "@heroicons/react/24/outline";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
-import { getBurgerById } from "../actions/burgerActions";
+import { useNavigate, useParams } from "react-router-dom";
+import Swal from "sweetalert2";
+import { editBurgerAction, getBurgerById } from "../actions/burgerActions";
 
 function EditMenu() {
   const dispatch = useDispatch();
@@ -27,12 +28,37 @@ function EditMenu() {
   const [desc, setDesc] = useState("");
   const [category, setCategory] = useState("et");
 
+  const navigate = useNavigate();
+
   const formHandler = (e) => {
     e.preventDefault();
+
+    const editedBurger = {
+      _id: burgerid,
+      ad: ad,
+      img: img,
+      desc: desc,
+      fiyat: {
+        small: smallPrice,
+        medium: mediumPrice,
+        mega: megaPrice,
+      },
+      kategori: category,
+    };
+
+    dispatch(editBurgerAction(editedBurger));
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Menü Güncelleme Başarılı",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+    navigate("/admin/menulist");
   };
 
   useEffect(() => {
-    if (burger._id == burgerid) {
+    if (burger?._id == burgerid) {
       setAd(burger.ad);
       setCategory(burger.kategori);
       setDesc(burger.desc);
@@ -158,8 +184,8 @@ function EditMenu() {
                         onChange={(e) => setCategory(e.target.value)}
                         className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-neutral-200 outline-none focus:border-indigo-500"
                       >
-                        <option value="Et Menü">Et</option>
-                        <option value="Tavuk Menü">Tavuk</option>
+                        <option value="Et Menü">Et Menü</option>
+                        <option value="Tavuk Menü">Tavuk Menü</option>
                       </select>
                     </div>
                   </div>

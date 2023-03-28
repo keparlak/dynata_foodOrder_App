@@ -41,22 +41,34 @@ function Navbar() {
           {/* Nav Links */}
           <ul className="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
             <li>
-              <Link to="/" className="hover:text-neutral-200">
+              <Link
+                to="/"
+                className="px-3 py-2 hover:text-neutral-200 hover:bg-neutral-800 rounded-lg"
+              >
                 Home
               </Link>
             </li>
             <li>
-              <Link to="/" className="hover:text-neutral-200">
+              <Link
+                to="/"
+                className="px-3 py-2 hover:text-neutral-200 hover:bg-neutral-800 rounded-lg"
+              >
                 Categories
               </Link>
             </li>
             <li>
-              <Link to="/" className="hover:text-neutral-200">
+              <Link
+                to="/"
+                className="px-3 py-2 hover:text-neutral-200 hover:bg-neutral-800 rounded-lg"
+              >
                 Collections
               </Link>
             </li>
             <li>
-              <Link to="/" className="hover:text-neutral-200">
+              <Link
+                to="/"
+                className="px-3 py-2 hover:text-neutral-200 hover:bg-neutral-800 rounded-lg"
+              >
                 Contact Us
               </Link>
             </li>

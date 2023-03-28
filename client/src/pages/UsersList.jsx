@@ -15,29 +15,44 @@ function UsersList() {
   }, [users]);
   return (
     <div>
-      <div className="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
-        <table className="w-full border-collapse bg-white text-left text-sm text-gray-500">
-          <thead className="bg-gray-50">
+      <div className="overflow-hidden rounded-xl shadow-xl shadow-neutral-200 m-5">
+        <table className="w-full border-collapse bg-white text-left text-sm text-neutral-500">
+          <thead className="bg-neutral-50">
             <tr>
-              <th scope="col" className="px-6 py-4 font-medium text-gray-900">
+              <th
+                scope="col"
+                className="px-6 py-4 font-medium text-neutral-900"
+              >
                 Name
               </th>
-              <th scope="col" className="px-6 py-4 font-medium text-gray-900">
+              <th
+                scope="col"
+                className="px-6 py-4 font-medium text-neutral-900"
+              >
                 Role
               </th>
-              <th scope="col" className="px-6 py-4 font-medium text-gray-900">
+              <th
+                scope="col"
+                className="px-6 py-4 font-medium text-neutral-900"
+              >
                 Created Time
               </th>
-              <th scope="col" className="px-6 py-4 font-medium text-gray-900">
+              <th
+                scope="col"
+                className="px-6 py-4 font-medium text-neutral-900"
+              >
                 Last Updated Time
               </th>
-              <th scope="col" className="px-6 py-4 font-medium text-gray-900" />
+              <th
+                scope="col"
+                className="px-6 py-4 font-medium text-neutral-900"
+              />
             </tr>
           </thead>
-          <tbody className="divide-y divide-gray-100 border-t border-gray-100">
+          <tbody className="divide-y divide-neutral-100 border-t border-neutral-100">
             {users.map((user, idx) => (
-              <tr key={idx} className="hover:bg-gray-50">
-                <th className="flex gap-3 px-6 py-4 font-normal text-gray-900">
+              <tr key={idx} className="hover:bg-neutral-50">
+                <th className="flex gap-3 px-6 py-4 font-normal text-neutral-900">
                   <div className="relative h-10 w-10">
                     <img
                       className="h-full w-full rounded-full object-cover object-center"
@@ -47,8 +62,10 @@ function UsersList() {
                     <span className="absolute right-0 bottom-0 h-2 w-2 rounded-full bg-green-400 ring ring-white" />
                   </div>
                   <div className="text-sm">
-                    <div className="font-medium text-gray-700">{user.name}</div>
-                    <div className="text-gray-400">{user.mail}</div>
+                    <div className="font-medium text-neutral-700">
+                      {user.name}
+                    </div>
+                    <div className="text-neutral-400">{user.mail}</div>
                   </div>
                 </th>
                 <td className="px-6 py-4">

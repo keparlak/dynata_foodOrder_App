@@ -49,7 +49,7 @@ function EditMenu() {
     <div>
       <div className="flex items-center justify-center px-5 py-5">
         <div
-          className="bg-white text-neutral-500 rounded-xl shadow-xl w-full overflow-hidden"
+          className="bg-white text-neutral-500 rounded-xl shadow-xl shadow-neutral-200  w-full overflow-hidden"
           style={{ maxWidth: "1000px" }}
         >
           <div className="md:flex w-full">

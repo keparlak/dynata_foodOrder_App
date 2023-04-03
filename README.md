@@ -1,6 +1,6 @@
 # Regular Food Order
 
-For English [click it](readme_en.md) out.
+For English [click it](README_EN.md) out.
 
 Regular Food Order, yemek siparişi almak ve yönetmek için bir web uygulamasıdır. Kullanıcılar kaydolabilir, siparişlerini ve menüleri yönetebilirler. Yöneticiler menüyü düzenleyebilir, siparişleri görüntüleyebilir, onaylayabilir veya reddedebilir, mevcut siparişleri ve sipariş tarihçesini görüntüleyebilir ve istatistikler oluşturabilirler.
 

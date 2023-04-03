@@ -1,6 +1,6 @@
 # Regular Food Order
 
-For Turkish [click it](readme.md) out.
+For Turkish [click it](README.md) out.
 
 An online food ordering application built with ReactJS, Redux, React-router-dom, TailwindCss, NodeJS, Express, Cors, Mongoose, Nodemon, and MongoDB.
 

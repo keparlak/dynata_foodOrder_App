@@ -6,9 +6,9 @@ Regular Food Order, yemek siparişi almak ve yönetmek için bir web uygulaması
 
 ## Kullanılan Teknolojiler
 
--   Front-end: ReactJS, Redux, React-router-dom, TailwindCss
--   Back-end: NodeJS, Express, Cors, Mongoose, Nodemon
--   Veritabanı: MongoDB
+- Front-end: ReactJS, Redux, React-router-dom, TailwindCss
+- Back-end: NodeJS, Express, Cors, Mongoose, Nodemon
+- Veritabanı: MongoDB
 
 ## Kurulum
 
@@ -16,11 +16,14 @@ Regular Food Order, yemek siparişi almak ve yönetmek için bir web uygulaması
 2.  Proje klasörüne gidin: `cd regularFoodOrder`
 3.  Back-end klasörüne gidin: `cd server`
 4.  Gerekli bağımlılıkları yükleyin: `npm install`
-5.  Sunucuyu başlatın: `npm start`
-6.  Back-end sunucusu `http://localhost:5000` adresinde çalışacaktır. Şimdi, front-end klasörüne gidin: `cd ../client`
-7.  Gerekli bağımlılıkları yükleyin: `npm install`
-8.  Uygulamayı başlatın: `npm start`
-9.  Uygulama, `http://localhost:3000` adresinde çalışacaktır.
+5.  Yapılandırma dosyasını kopyalayın: `cp .env.example .env`
+    .env dosyasını düzenleyin ve gerekli ayarları girin (örneğin, MongoDB bağlantı dizesi).
+6.  Sunucuyu başlatın: `npm start`
+7.  Back-end sunucusu `http://localhost:5000` adresinde çalışacaktır. Şimdi, front-end klasörüne gidin: `cd ../client`
+8.  Gerekli bağımlılıkları yükleyin: `npm install`
+9.  `src/pages/CheckOutPage.jsx`içindeki Stripe PK'yi yapılandırmayı unutmayın.
+10. Uygulamayı başlatın: `npm start`
+11. Uygulama, `http://localhost:3000` adresinde çalışacaktır.
 
 ## Kullanım
 
@@ -41,7 +44,8 @@ Regular Food Order, yemek siparişi almak ve yönetmek için bir web uygulaması
 5.  Mevcut siparişlerin ve sipariş tarihçesinin istatistiklerini `Statistics` sayfasında görüntüleyebilirsiniz.
 
 ## Katkıda Bulunma
-1.  Fork edin ([https://github.com/keparlak/regularFoodOrder/fork](https://github.com/keparlak/regularFoodOrder/fork)) 
+
+1.  Fork edin ([https://github.com/keparlak/regularFoodOrder/fork](https://github.com/keparlak/regularFoodOrder/fork))
 2.  Yeni bir dal oluşturun (git checkout -b feature/fooBar)
 3.  Değişikliklerinizi yapın
 4.  Değişikliklerinizi doğrulayın (git commit -am 'Add some fooBar')
